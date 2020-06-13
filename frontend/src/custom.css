@@ -1,0 +1,131 @@
+/*.home-card a:first-child,*/
+/*.home-card a :hover{*/
+    /*color: inherit;*/
+    /*text-decoration: none;*/
+    /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);*/
+/*}*/
+
+/* HOMEPAGE */
+.home-card{
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+
+}
+.home-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+    text-decoration: none;
+    color: inherit;
+}
+.home-card-translations{
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+    border-radius: 15px;
+    padding: 50px;
+}
+.home-card-unpublished{
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    background: #21D4FD linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    border-radius: 15px;
+    padding: 50px;
+}
+.home-card-languages{
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    background: linear-gradient(19deg, #11998e 0%, #38ef7d 100%);
+    border-radius: 15px;
+    padding: 50px;
+}
+/*-----------------------*/
+
+/* SEARCH BAR */
+.has-search .form-control {
+    padding-left: 2.375rem;
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-group--fixed-bottom {
+    margin-top: 0;
+}
+
+.relationship-popover {
+    background: #ffffff;
+    z-index: 999;
+    height: 10rem;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.dropdown-menu-scrollable {
+    max-height: 8rem;
+    overflow-y: auto;
+}
+
+.full-height{
+    height:100%;
+}
+
+.alert {
+    position:relative;
+    padding: 2vh;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+
+.container {
+    background: white;
+    min-height:100vh;
+    position:relative;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    padding: 2vh;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+
+.horizontal-vertical-align {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.header {
+    background: white;
+    box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.1);
+}
+
+.menu {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    position: fixed;
+}
+
+/*-----------------------*/
