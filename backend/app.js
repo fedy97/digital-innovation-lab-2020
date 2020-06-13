@@ -6,10 +6,14 @@ const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
 
 const mainRouter = require('./routes/mainRoutes');
-
+const cors = require('cors');
 const app = express();
 
-//MIDDLE-WARES
+app.enable('trust proxy');
+
+app.use(cors());
+app.options('*', cors());
+
 //secure http header
 app.use(helmet());
 //secure against sql injection
@@ -30,6 +34,7 @@ app.use('/api', limiter);
 //max 10kb in the body of the json
 app.use(express.json({ limit: '10kb' }));
 
+//ROUTING
 app.use('/api/v1/infos', mainRouter);
 
 app.all('*', (req, res, next) => {
