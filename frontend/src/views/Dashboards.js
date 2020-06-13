@@ -1,7 +1,9 @@
 import React from 'react';
-import {Button, Space} from 'antd';
+import {Button, Space, Typography} from 'antd';
 import CustomLayout from '../components/CustomLayout';
-
+import LottieFile from "../components/common/LottieFile";
+import file from "../assets/lottie/analysis.json";
+const { Title } = Typography;
 const PageActions = () => {
     return (
         <div className="antd-pro-pages-list-card-list-style-contentLink">
@@ -24,7 +26,9 @@ const DashboardsPage = (props) => {
             breadcrumbFirst="Central Safety System"
             pageAction={<PageActions/>}
         >
-            content
+            <Title level={2}>Dashboards:</Title>
+            <Title level={4}>Soon available</Title>
+            <LottieFile file={file} width={"65%"}/>
         </CustomLayout>
     );
 };

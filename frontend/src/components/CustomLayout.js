@@ -1,8 +1,9 @@
 import React from "react";
-import {Breadcrumb, Layout} from "antd";
+import {Breadcrumb, Layout, Typography} from "antd";
 import PropTypes from 'prop-types';
 
 const {Header, Content, Footer} = Layout;
+const { Title } = Typography;
 
 const CustomLayout = (props) => {
 
@@ -20,9 +21,9 @@ const CustomLayout = (props) => {
                             </Breadcrumb>
                             <div className="ant-page-header-heading">
                                 <div className="ant-page-header-heading-left">
-                                    <span className="ant-page-header-heading-title">
+                                    <Title level={1}>
                                         {props.title}
-                                    </span>
+                                    </Title>
                                 </div>
                                 <div className="ant-page-header-content">
                                     {props.pageAction}
@@ -38,6 +39,7 @@ const CustomLayout = (props) => {
                         </div>
                     </div>
                 </Content>
+                <Footer style={{ textAlign: 'center' }}>Group 7 ©2020 Central Safety System </Footer>
             </main>
         </Layout>
     );

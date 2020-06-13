@@ -2,11 +2,13 @@ import React from 'react';
 import {Button, Space, Badge, Divider, Row, Col} from 'antd';
 import CustomLayout from '../components/CustomLayout';
 import HomeCard from '../components/common/HomeCard.js';
-import { Avatar } from 'antd';
+import { Avatar, Typography } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { NotificationOutlined } from '@ant-design/icons';
+import dashboard from '../assets/lottie/dashboard.json';
+import LottieFile from "../components/common/LottieFile";
 
-
+const { Title } = Typography;
 
 const PageActions = () => {
     return (
@@ -35,7 +37,8 @@ const Homepage = (props) => {
             pageAction={<PageActions/>}
         >
             <div className="full-height">
-                <Row gutter={82}>
+                <Title level={2}>Features</Title>
+                <Row gutter={16}>
                     <Col span={8}>
                         <HomeCard
                             title="Search"
@@ -58,6 +61,11 @@ const Homepage = (props) => {
                         />
                     </Col>
                 </Row>
+                <Row>
+                </Row>
+                <Divider />
+                <Title level={2}>Dashboard Preview</Title>
+                <LottieFile file={dashboard} width={"65%"}/>
             </div>
         </CustomLayout>
     );

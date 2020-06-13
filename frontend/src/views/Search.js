@@ -1,10 +1,13 @@
-import React from 'react';
-import {Avatar, Badge, Button, Col, DatePicker, Divider, Form, Input, Radio, Row, Space} from 'antd';
+import React, {useEffect, useState} from 'react';
+import {Avatar, Badge, Button, Col, DatePicker, Divider, Form, Input, Radio, Row, Space, message} from 'antd';
 import CustomLayout from '../components/CustomLayout';
 import {NotificationOutlined, UserOutlined} from '@ant-design/icons';
 import LineChart from "../components/LineChart";
+import MessageView from "../components/common/MessageView";
 
 const {RangePicker} = DatePicker;
+
+const mockdata = require("../assets/data.json");
 
 const PageActions = () => {
     return (
@@ -26,12 +29,39 @@ const PageActions = () => {
 };
 
 const SearchPage = (props) => {
+    const [data, setData] = useState(null);
+
+    const asyncFetch = (url, headers) => {
+        fetch(url,
+            {
+                method: 'GET',
+                headers: headers,
+                resolveWithFullResponse: true,
+            })
+            .then(response => response.json())
+            .then(json => setData(json?.data?.infos))
+            .catch(error => {
+                message.error('Fetch error');
+            });
+    };
+
     const [form] = Form.useForm();
     const dateTimeFormat = 'YYYY-MM-DD';
 
     const handleEventSubmit = async () => {
         let formValues = await form.validateFields();
         console.log(formValues);
+
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+
+        headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+        headers.append('Access-Control-Allow-Credentials', 'true');
+
+        let url = 'https://central-safety-system.herokuapp.com/api/v1/infos';
+        asyncFetch(url, headers);
     };
 
     return (
@@ -77,8 +107,7 @@ const SearchPage = (props) => {
                                 name="filter"
                                 label="Filter:"
                             >
-
-                                <Radio.Group defaultValue="a">
+                                <Radio.Group defaultValue="Crowd">
                                     <Radio.Button value="TrackRoutes">TrackRoutes</Radio.Button>
                                     <Radio.Button value="Crimes">Crimes</Radio.Button>
                                     <Radio.Button value="Crowd">Crowd</Radio.Button>
@@ -95,7 +124,20 @@ const SearchPage = (props) => {
             </Row>
             <Row>
                 <Col span={24} padding={8}>
-                <LineChart/>
+                    {
+                        (data != null) ? (
+                            <LineChart
+                                data={data}
+                            />
+                        ) : (
+                            <MessageView
+                                type='shield'
+                                title='Make a search'
+                                subtitle='Fill all fields and make your search'
+                            />
+                        )
+                    }
+
                 </Col>
             </Row>
         </CustomLayout>

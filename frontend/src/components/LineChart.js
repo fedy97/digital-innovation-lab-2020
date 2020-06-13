@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from '@ant-design/charts';
 
-const mockdata = require("../assets/data.json");
-
-const LineChart = () => {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        asyncFetch();
-    }, []);
-
-    const asyncFetch = () => {
-        fetch('https://gw.alipayobjects.com/os/antfincdn/%24KjfUOgRYa/GDP.json')
-            .then(response => response.json())
-            .then(json => setData(mockdata))
-            .catch(error => {
-                console.log('fetch data failed', error);
-            });
-    };
+const LineChart = (props) => {
+    const {data} = props;
 
     const config = {
         title: {
