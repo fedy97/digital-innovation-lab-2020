@@ -1,0 +1,28 @@
+\providecommand{\atd}{..}
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Implementation}
+Regarding the implementation of a demo project, we decided to show the search feature of our system.
+We propose a MongoDB instance on AWS with a back-end implemented in Javascript with Node.js on Heroku cloud. The front-end will be implemented in React.
+The demo shows a use case in which an event is triggered from the front-end, handled by the back-end (which retrieves the data from the DB and elaborates them) and finally goes back to the front-end as a JSON response.
+We decided to use MongoDB instead of Cassandra due to the fact that the first is free on the AWS cloud. Cassandra still remain our chosen model as specified in the project document.
+\section{Backend}
+The back-end has been implemented using Node.js and Express framework. For what concerns the database, we decided to use MongoDB, that is easily configurable and has a good library (Mongoose) for Node. The API implemented is always available, thanks to Heroku. The endpoint is reachable from \href{https://central-safety-system.herokuapp.com/api/v1/infos}{\textit{central-safety-system.herokuapp.com/api/v1/infos}}, a simple GET request that will respond with a list of information that will be rendered in the front end. The data is retrieved from a cluster of Mongo deployed with the free plan of Atlas AWS. Note that the response of the API could take few seconds due to the free plan of Heroku.
+\section{Frontend}
+Front-end part of Central Safety System is a web app, accessible from every computer via browser without having to install anything.
+Our web app developed in React a Javascript framework made by Facebook Inc. (\textit{https://it.reactjs.org/}).
+For the UI we have used Ant Design which is an enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises (\textit{https://ant.design/}) and for charts we have used Ant Design Chart (\textit{https://charts.ant.design/}).
+Lastly, animations are made using Lottie a library made by Airbnb which allow the rendering of After Effects animations in real time, allowing apps to use animations as easily as they use static images (\textit{https://airbnb.design/lottie/}).
+The implementation of the demo project UI side covers the homepage and the search part of since it is one of the most important features of Central Safety System.
+While the other two parts of our project, analysis and dashboards, have already been set up just in their layout, not with their functionalities.
+\subsection{Scenario}
+It shows an overview of the homepage, analysis and dashboards, and it is mainly focused on showing the scenario of Giulio Fumagalli, an employee of our client Protezione Civile, that is logged in Central Safety System.
+The user want to search how many people are crowded in a specific day, in a targeted area of Milan, in this case Via Golgi.
+Then he submit the search form to the server by calling a specific REST API endpoint and the server responds with the number of people for each hour of the day and also with the same informations about the day before and the week before.
+The data are shown in a line chart because data visualization is useful for the user to easily compare the crowd with historical data about the number of people in that area.
+\\
+In the following link where is an overview of the implemented demo project.\\
+\href{https://www.youtube.com/watch?v=iNvJE5MXEYs}{\textit{https://www.youtube.com/watch?v=iNvJE5MXEYs}}
+
+\end{document}
