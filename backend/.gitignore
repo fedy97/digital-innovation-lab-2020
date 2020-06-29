@@ -105,11 +105,6 @@ dist
 .tern-port
 /public/
 /.idea/
-/dev-data/data/import-dev-data.js
-/dev-data/data/reviews.json
-/dev-data/data/tour5.js
-/dev-data/data/tours.json
-/dev-data/data/tours-simple.json
-/dev-data/data/users.json
+**/dev-data
 /config.env
 /package-lock.json
